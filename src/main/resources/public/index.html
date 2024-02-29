@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taller 5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Sin</h1>
+        <form action="/sin">
+            <label for="name">Name:</label><br>
+            <input type="text" id="sinx" name="name" placeholder="x"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsgSin()">
+        </form> 
+        <div id="getrespmsgsin"></div>
+
+        <script>
+            function loadGetMsgSin() {
+                let nameVar = document.getElementById("sinx").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsgsin").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/sin?x="+nameVar);
+                xhttp.send();
+            }
+        </script>
+
+        <h1>Cos</h1>
+        <form action="/cos">
+            <label for="name">Name:</label><br>
+            <input type="text" id="cosx" name="name" placeholder="x"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsgCos()">
+        </form> 
+        <div id="getrespmsgcos"></div>
+
+        <script>
+            function loadGetMsgCos() {
+                let nameVar = document.getElementById("cosx").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsgcos").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/cos?x="+nameVar);
+                xhttp.send();
+            }
+        </script>
+
+        <h1>Palindrome</h1>
+        <form action="/palindrome">
+            <label for="name">Name:</label><br>
+            <input type="text" id="word" name="name" placeholder="word"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsgPal()">
+        </form> 
+        <div id="getrespmsgpal"></div>
+
+        <script>
+            function loadGetMsgPal() {
+                let nameVar = document.getElementById("word").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsgpal").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/palindrome?word="+nameVar);
+                xhttp.send();
+            }
+        </script>
+        
+        <h1>Magnitude</h1>
+        <form action="/magnitude">
+            <label for="name">Name:</label><br>
+            <input type="text" id="tail" name="name" placeholder="x1,y1"><br><br>
+            <input type="text" id="head" name="name" placeholder="x2,y2"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsgMag()">
+        </form> 
+        <div id="getrespmsgmag"></div>
+
+        <script>
+            function loadGetMsgMag() {
+                let nameVar1 = document.getElementById("tail").value;
+                let nameVar2 = document.getElementById("head").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsgmag").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/magnitude?x="+nameVar1+"&y="+nameVar2);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>
